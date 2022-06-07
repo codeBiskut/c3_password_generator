@@ -9,7 +9,10 @@ var numeric;
 var special;
 
 // Variable for validation
-var validInput;
+var validInput = false;
+var minLength = 8;
+var maxLength = 128;
+var numPropmts = 5;
 
 // Write password to the #password input
 function writePassword() {
@@ -21,11 +24,15 @@ function writePassword() {
 }
 
 // Generates password
-function generatePassword(){
+function generatePassword() {
   //password length (8-128)
-  passwordLength = prompt("Password length:", "Between 8-128 characters");
+  while (validInput === false) {
+    passwordLength = prompt("Password length:", "Between 8-128 characters");
+  }
   console.log(passwordLength)
 
+
+  validInput = true;
   uppercase = confirm("Include uppercase?");
   console.log(uppercase)
 
@@ -37,6 +44,7 @@ function generatePassword(){
 
   special = confirm("Include special characters?")
   console.log(special)
+
 
   //character types (yes/no for [lowercase, uppercase, numeric, and/or special characters])
   //input should be validated and at least one selected
