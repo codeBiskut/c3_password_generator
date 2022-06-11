@@ -10,9 +10,9 @@ var special;
 
 // Variable for validation
 var validInput = false;
+var validSelection = false;
 var minLength = 8;
 var maxLength = 128;
-var numPropmts = 5;
 
 // Write password to the #password input
 function writePassword() {
@@ -25,26 +25,42 @@ function writePassword() {
 
 // Generates password
 function generatePassword() {
-  //password length (8-128)
-  while (validInput === false) {
+  //password length (8-128) and validates correct input
+  while (!validInput) {
     passwordLength = prompt("Password length:", "Between 8-128 characters");
+    if (passwordLength >= 8 && passwordLength <= 128) {
+      validInput === true;
+      break;
+    }
+    else {
+      alert("Please enter a valid password length (8-128)");
+    }
   }
   console.log(passwordLength)
 
 
-  validInput = true;
-  uppercase = confirm("Include uppercase?");
-  console.log(uppercase)
+  // check for uppercase, lowercase, numeric, and special characters
+  while (!validSelection) {
+    uppercase = confirm("Include uppercase?");
+    console.log(uppercase)
 
-  lowercase = confirm("Include lowercase?");
-  console.log(lowercase)
+    lowercase = confirm("Include lowercase?");
+    console.log(lowercase)
 
-  numeric = confirm("Include numbers?");
-  console.log(numeric)
+    numeric = confirm("Include numbers?");
+    console.log(numeric)
 
-  special = confirm("Include special characters?")
-  console.log(special)
+    special = confirm("Include special characters?")
+    console.log(special)
 
+    if (uppercase || lowercase || numeric || special) {
+      validSelection = true;
+      break;
+    }
+    else {
+      alert("Please select at least one type of character to include (Uppercase, Lowercase, Numeric, Special)")
+    }
+  }
 
   //character types (yes/no for [lowercase, uppercase, numeric, and/or special characters])
   //input should be validated and at least one selected
