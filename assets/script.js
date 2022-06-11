@@ -26,10 +26,11 @@ function writePassword() {
 // Generates password
 function generatePassword() {
   //password length (8-128) and validates correct input
+  validInput = false;
   while (!validInput) {
     passwordLength = prompt("Password length:", "Between 8-128 characters");
     if (passwordLength >= 8 && passwordLength <= 128) {
-      validInput === true;
+      validInput = true;
       break;
     }
     else {
@@ -40,6 +41,7 @@ function generatePassword() {
 
 
   // check for uppercase, lowercase, numeric, and special characters
+  validSelection = false;
   while (!validSelection) {
     uppercase = confirm("Include uppercase?");
     console.log(uppercase)
