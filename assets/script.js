@@ -14,15 +14,6 @@ var validSelection = false;
 var minLength = 8;
 var maxLength = 128;
 
-// arrays of character types
-var lowercaseArr = 'abcdefghijklmnopqrstuvwxyz'
-
-var uppercaseArr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 
-
-var numericArr = '0123456789'
-
-var specialArr = " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -73,13 +64,19 @@ function generatePassword() {
     }
   }
 
-  //character types (yes/no for [lowercase, uppercase, numeric, and/or special characters])
-  //input should be validated and at least one selected
+  // arrays of character types
+  var lowercaseStr = 'abcdefghijklmnopqrstuvwxyz'
 
-  // define character types (e.g. a-z;A-Z;0-9;special)
+  var uppercaseStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
+  var numericStr = '0123456789'
+
+  var specialArr = '\u0021\u0023\u0024\u0025\u0026?@^-_~'
 
   //generate password based on selected criteria
+  for(let i=0;i<passwordLength;i++){
+    Math.floor.random
+  }
 }
 
 // Add event listener to generate button
