@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var passwordEl = document.querySelector("#password")
 
 // Variables for storing input
 var passwordLength;
@@ -41,19 +42,48 @@ function generatePassword() {
 
 
   // check for uppercase, lowercase, numeric, and special characters
+
   validSelection = false;
+
+  // strings of character types
+  var lowercaseStr = 'abcdefghijklmnopqrstuvwxyz'
+
+  var uppercaseStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+  var numericStr = '0123456789'
+
+  var specialStr = '\u0021\u0023\u0024\u0025\u0026?@^-_~'
+
+  // array of characters to select from
+  var charArr = [];
+
+  // array for password to be created in
+  var password = [];
+
   while (!validSelection) {
     uppercase = confirm("Include uppercase?");
     console.log(uppercase)
+    if (uppercase) {
+      charArr.push(uppercaseStr)
+    }
 
     lowercase = confirm("Include lowercase?");
     console.log(lowercase)
+    if (lowercase) {
+      charArr.push(lowercaseStr)
+    }
 
     numeric = confirm("Include numbers?");
     console.log(numeric)
+    if (numeric) {
+      charArr.push(numericStr)
+    }
 
     special = confirm("Include special characters?")
     console.log(special)
+    if (special) {
+      charArr.push(specialStr)
+    }
 
     if (uppercase || lowercase || numeric || special) {
       validSelection = true;
@@ -64,19 +94,20 @@ function generatePassword() {
     }
   }
 
-  // arrays of character types
-  var lowercaseStr = 'abcdefghijklmnopqrstuvwxyz'
-
-  var uppercaseStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-  var numericStr = '0123456789'
-
-  var specialArr = '\u0021\u0023\u0024\u0025\u0026?@^-_~'
+  console.log(charArr)
 
   //generate password based on selected criteria
-  for(let i=0;i<passwordLength;i++){
-    Math.floor.random
+  for (let i = 0; i < passwordLength; i++) {
+    let charStr = (charArr[Math.floor((charArr.length) * Math.random())])
+    console.log(charStr)
+
+    let selChar = charStr.charAt(Math.floor(charStr.length * Math.random()))
+
+    password.push(selChar)
   }
+  outputpass=password.join('')
+  passwordEl.value = outputpass
+  console.log(password.join(''))
 }
 
 // Add event listener to generate button
