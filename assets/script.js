@@ -105,8 +105,7 @@ function generatePassword() {
 
     password.push(selChar)
   }
-  let outputpass=password.join('')
-  passwordEl.value = outputpass
+  passwordEl.value = password.join('')
   console.log(password.join(''))
 }
 
