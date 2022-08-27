@@ -38,7 +38,6 @@ function generatePassword() {
       alert("Please enter a valid password length (8-128)");
     }
   }
-  console.log(passwordLength)
 
 
   // check for uppercase, lowercase, numeric, and special characters
@@ -58,29 +57,25 @@ function generatePassword() {
   var charArr = [];
 
   // array for password to be created in
-  var password = [];
+  var password = '';
 
   while (!validSelection) {
     uppercase = confirm("Include uppercase?");
-    console.log(uppercase)
     if (uppercase) {
       charArr.push(uppercaseStr)
     }
 
     lowercase = confirm("Include lowercase?");
-    console.log(lowercase)
     if (lowercase) {
       charArr.push(lowercaseStr)
     }
 
     numeric = confirm("Include numbers?");
-    console.log(numeric)
     if (numeric) {
       charArr.push(numericStr)
     }
 
     special = confirm("Include special characters?")
-    console.log(special)
     if (special) {
       charArr.push(specialStr)
     }
@@ -94,19 +89,18 @@ function generatePassword() {
     }
   }
 
-  console.log(charArr)
-
   //generate password based on selected criteria
   for (let i = 0; i < passwordLength; i++) {
     let charStr = (charArr[Math.floor((charArr.length) * Math.random())])
-    console.log(charStr)
 
     let selChar = charStr.charAt(Math.floor(charStr.length * Math.random()))
 
-    password.push(selChar)
+    password += selChar
   }
-  passwordEl.value = password.join('')
-  console.log(password.join(''))
+  // couldn't get the code below to properly display the password, so i used an alert
+  // passwordEl.value = password
+
+  alert(`Your password is: ${password}`)
 }
 
 // Add event listener to generate button
